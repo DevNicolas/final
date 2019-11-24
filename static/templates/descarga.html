@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search in scholar</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/search.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-download.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+<br>
+    <h3>Tu archivo a sido descargado <img src="static/img/success.png" class="imagen"></h3>
+    <br>
+    <h3>Ahora puedes manejar la informacion para lo que la necesitabas <img src="static/img/rising.png" class="imagen"></h3>
+    <a href="{{url_for('index')}}">Vuelve al inicio a buscar otro perfil </a><img src="static/img/left-arrow.png" class="imagen">
+</body>
+</html>
