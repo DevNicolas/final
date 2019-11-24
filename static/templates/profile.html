@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search in scholar</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/search.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-profile.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+            <h1 class="title">Perfil del investigador <img src="static/img/resume.png" class="imagen"> </h1>
+      <main class="profile">
+        <section class="result">
+            <ul>
+                    {% for info in perfil %}
+                <article class="article">
+                    <h4>Nombre:</h4>
+                   <li>{{info.split("$")[0]}}</li>
+                     <h4>Universidad o asociacion:</h4>
+                    <li>{{info.split("$")[1]}}</li>
+                      <h4>Ramas:</h4>
+                    <li>{{info.split("$")[2]}}</li>
+                 </article>
+            </ul>
+            {% endfor %}
+            <ul>
+                       {% for texto in contenido %}
+                <article class="article">
+                    <h4>Articulos:</h4>
+                    <li>{{texto.split("$")[0]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[1]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[2]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[3]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[4]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[5]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[6]}}</li>
+                     <br>
+                    <li>{{texto.split("$")[7]}}</li>
+                     <br>
+
+                 </article>
+            </ul>
+            {% endfor %}
+<ul>
+                       {% for indice in grafica %}
+                <article class="article">
+                    <h4>Indices:</h4>
+                    <table class="tabla">
+                        <tr>
+                            <td></td>
+                            <td>total</td>
+                            <td>desde 2014</td>
+                        </tr>
+                        <tr>
+                            <td>{{indice.split("$")[0]}}</td>
+                            <td>{{indice.split("$")[1]}} </td>
+                            <td>{{indice.split("$")[2]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{indice.split("$")[3]}}</td>
+                            <td>{{indice.split("$")[4]}} </td>
+                            <td>{{indice.split("$")[5]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{indice.split("$")[6]}}</td>
+                            <td>{{indice.split("$")[7]}} </td>
+                            <td>{{indice.split("$")[8]}}</td>
+                        </tr>
+                    </table>
+
+                 </article>
+</ul>
+                {% endfor %}
+
+                       {% for data in datos %}
+                <article class="article">
+                    <h4>Citaciones por años:</h4>
+                    <table class="tabla">
+                        <tr>
+                            <td>{{data.split("$")[0]}} </td>
+                            <td>{{data.split("$")[1]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{data.split("$")[2]}}</td>
+                            <td>{{data.split("$")[3]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{data.split("$")[4]}} </td>
+                            <td>{{data.split("$")[5]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{data.split("$")[6]}}</td>
+                            <td>{{data.split("$")[7]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{data.split("$")[8]}} </td>
+                            <td> {{data.split("$")[9]}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{data.split("$")[10]}}</td>
+                            <td>{{data.split("$")[11]}}</td>
+                        </tr>
+                    </table>
+                </article>
+
+                {% endfor %}
+        </section>
+
+          <a href="{{url_for('descarga', url=url)}}">Descargar Archivo Csv con la informacion</a>
+   </main>
+                <p class="url">{{url}}</p>
+</body>
+</html>
